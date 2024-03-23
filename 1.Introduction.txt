@@ -1,0 +1,18 @@
+NodeJS is an environment to run JavaScript outside browser.
+It's built on top of chrome's v8 engine (engine is a tool that  converts our code to the machine code and every browser 
+has an engine)
+
+//difference between browser js and node js
+
+browser js:
+-
+
+node js:
+- no access to browser api (dom, fetch)
+- no window object access
+- used for building server side apps
+- unlike browser we can access file system in the node(fs module), info about os(os module) respond to network requests <=
+(these or some of the things we can do in node)
+- versions (eg. if there's a new version sometime it won't support the older things, but, in node version is not a problem)
+- access to modules by default(in browser access to modules are optional). It's hard to imagine a node app where we are not 
+going to use them. NodeJs uses common js library for the modules.

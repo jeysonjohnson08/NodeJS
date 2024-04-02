@@ -50,4 +50,4 @@ console.log(newitems2);
 // This is because the directory was already tracked before I added it to .gitignore
 // To stop tracking I used
 // git rm -r --cached node_master
-// git commit -m "Remove node_master directory from tracking"
+// git commit -m "Remove node_master directory from tracking".

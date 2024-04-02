@@ -35,7 +35,7 @@
 // node follows commonJS module system. CommonJS modules are synchronous.
 
 const _ = require("lodash") //underscore (_) is often used as a variable name to represent the lodash library.
-// we can use any variable to represent lodash
+// we can use any variable as a reference for`q lodash
 
 const items = [1,2,3,[4,5,6,[7,8,9]]];
 const newitems = _.flattenDeep(items);

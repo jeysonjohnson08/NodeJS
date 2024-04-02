@@ -43,3 +43,11 @@ const newitems2 = _.findLast(items);
 
 console.log(newitems);
 console.log(newitems2);
+
+//.gitignore
+// I created a git ingore file and types /node_master inside it and pushed it into git but the
+//node master file is still there.
+// This is because the directory was already tracked before I added it to .gitignore
+// To stop tracking I used
+// git rm -r --cached node_master
+// git commit -m "Remove node_master directory from tracking"

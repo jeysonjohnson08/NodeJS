@@ -6,8 +6,16 @@
 // Local Dependency - we only use it in this particular project
 // npm i <package name> or npm install <package name>
 
-// Global Dependency - we can use it in any project
+// Global Dependency - Global dependencies are installed globally on your system and 
+// are accessible from any Node.js project. we can use it in any project
 // npm i -g <package name>
+
+
+// Dev Dependencies - Dev Dependencies are also installed in the projects node_module directory
+//these are only needed for development and testing purposes.
+// we can also install dev dependency as a global dependency
+// npm i <package name> --save-dev or npm install <package name> -D
+// npm i <package name> --save-dev -g //installing as global
 
 // package.json //stores important information about installed packages/ dependencies.
 // three ways to create package.json
@@ -45,9 +53,13 @@ console.log(newitems);
 console.log(newitems2);
 
 //.gitignore
+// .gitignore says to github to ignore the file
 // I created a git ingore file and types /node_master inside it and pushed it into git but the
 //node master file is still there.
 // This is because the directory was already tracked before I added it to .gitignore
 // To stop tracking I used
 // git rm -r --cached node_master
 // git commit -m "Remove node_master directory from tracking".
+
+// if someone else cloned our project they will npm install to install all the
+//dependencies from package.json file

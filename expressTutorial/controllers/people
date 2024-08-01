@@ -1,0 +1,14 @@
+// the controller handles the logic
+
+const getperson = (req,res)=>{
+    res.status(200).json({success: true, datas: people})
+}
+
+const updateperson = (req,res)=>{
+
+    const {name} = req.body;
+    console.log(name);
+        res.status(201).json({person: name});
+    }
+
+module.exports = {getperson, updateperson}

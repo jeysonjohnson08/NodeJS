@@ -1,0 +1,103 @@
+const express = require("express")
+const app = express()
+const path = require("path");
+ const routers = require("./routes/people")
+
+// When you export an object with multiple properties, you can destructure them upon import.
+
+
+
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'methods-public')));
+
+
+app.use("/api/people", routers)
+/*The express.json() is a built-in middleware function in Express.js. It is responsible for parsing the incoming request bodies before your handlers.
+
+Here’s what it does:
+
+Parsing JSON: It parses incoming requests with a JSON payload, which are based on body-parser.
+
+Populating req.body: The middleware populates the req.body property with a JavaScript object after parsing the incoming request data. 
+This object contains key-value pairs of data submitted in the request body.*/
+
+
+//app.use(express.urlencoded({extended: false}))//the extended option determines how the URL-encoded data is parsed.  (It parses it in the  simple way
+
+
+
+/*
+In Express.js, urlencoded middleware is needed to access form data because it processes the incoming request bodies
+ and makes the data available in the req.body object.
+
+ It 
+*/
+app.use(express.urlencoded({extended: false}))//the extended option determines how the URL-encoded data is parsed.  (It parses it in the  simple way
+// and no complex structures like nested objects will not be parsed)
+
+/*
+Post req
+
+When you send a POST request, the body is crucial because it 
+contains the data you want to send to the server. This is different
+ from GET requests, where data is usually sent via the URL query string. 
+*/
+
+
+
+
+app.post("/login",(req,res)=>{
+    const {name} = req.body;
+    if(name){
+        res.status(200).send("welcome user")
+     }
+    else{
+        console.log("in login");
+res.status(404).send("please provide some username value")    }
+})
+
+
+app.listen(3000,()=>{console.log("server is listening to port 3000")})
+
+
+// USING THE APPROPRIATE METHODS
+
+/*
+
+### Summary of HTTP Methods Usage
+
+**1. POST**
+   - **Purpose**: Submit data to be processed; often for creating new resources.
+   - **Characteristics**:
+     - Not idempotent: multiple identical requests create multiple resources.
+     - Used for non-idempotent actions (e.g., form submissions).
+
+**2. PUT**
+   - **Purpose**: Update a resource or create it if it doesn't exist.
+   - **Characteristics**:
+     - Idempotent: multiple identical requests have the same effect as one.
+     - Used for creating or updating resources.
+
+**3. DELETE**
+   - **Purpose**: Delete a specified resource.
+   - **Characteristics**:
+     - Idempotent: once the resource is deleted, further identical requests have no additional effect.
+     - Used for removing resources.
+
+**Key Reasons for Using Appropriate Methods:**
+1. **Semantics and Clarity**: Each method has a clear and distinct meaning, improving readability and maintainability.
+2. **Idempotence**: PUT and DELETE are idempotent, avoiding unintended side effects from multiple identical requests.
+3. **Caching and Optimization**: Methods like GET and PUT can be cached, optimizing network performance.
+4. **Standards and Best Practices**: Following conventions makes your API predictable and easier to integrate.
+
+### Example Usage
+- **Creating a Resource**: Use **POST** (`/users`) to create a new user.
+- **Updating a Resource**: Use **PUT** (`/users/{id}`) to update an existing user's information.
+- **Deleting a Resource**: Use **DELETE** (`/users/{id}`) to delete an existing user.
+
+Using the correct HTTP method ensures a robust, predictable, and easy-to-use API.
+*/
+
+//EXAMPLE DIFFERENCE BETWEEN POST AND PUT
+
+ 
